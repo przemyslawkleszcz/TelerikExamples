@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Kendo.Mvc.Extensions;
+using Kendo.Mvc.UI;
+using KendoUIMVCExamples.Models;
 
 namespace KendoUIMVCExamples.Controllers
 {
@@ -10,23 +9,33 @@ namespace KendoUIMVCExamples.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
-
+            ViewBag.Message = "Telerik Kendo UI MVC Examples";
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult ServerBinding()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "Server binding";
+            var model = ModelDataProducer.PrepareModel<ServerBindingModel, ServerBindingData>();
+            return View(model);
+        }
 
+        public ActionResult AjaxBinding()
+        {
+            ViewBag.Message = "Ajax binding";
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Index_Read([DataSourceRequest] DataSourceRequest request)
         {
-            ViewBag.Message = "Your contact page.";
+            var model = ModelDataProducer.PrepareIndexModel();
+            return Json(model.Data.ToDataSourceResult(request));
+        }
 
-            return View();
+        public ActionResult AjaxBinding_Read([DataSourceRequest] DataSourceRequest request)
+        {
+            var model = ModelDataProducer.PrepareModel<AjaxBindingModel, AjaxBindingData>();
+            return Json(model.Data.ToDataSourceResult(request));
         }
     }
 }

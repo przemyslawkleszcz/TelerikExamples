@@ -1,0 +1,27 @@
+﻿@using System.Web.Mvc.Html
+@using KendoUIMVCExamples.Models
+<h2>@ViewBag.Message</h2>
+
+@(Html.Kendo().Grid<AjaxBindingData>()
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.Id);
+        columns.Bound(c => c.Name).HtmlAttributes(new { style = "background:red;" });
+    })
+    .Editable(editable => editable.Mode(GridEditMode.InCell))
+    .HtmlAttributes(new { style = "height: 75%;" })
+    .Scrollable()
+    .Groupable()
+    .Sortable()
+    .Selectable()
+    .DataSource(dataSource => dataSource
+    .Ajax()
+    .Model(model => model.Id(i => i.Id))
+    .Model(model =>
+    {
+        model.Field(f => f.Id).Editable(false);
+        model.Field(f => f.Name).Editable(false);
+    }).Read(read => read.Action("AjaxBinding_Read", "Home"))
+    )
+)

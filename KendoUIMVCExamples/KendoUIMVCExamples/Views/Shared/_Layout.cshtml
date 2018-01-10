@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html> 
     <head>
-        <title>@ViewBag.Title - My Telerik MVC Application</title>
+        <title>Telerik Kendo UI MVC Examples</title>
         <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
 
         @* Content-box fixes as per http://docs.telerik.com/kendo-ui/third-party/using-kendo-with-twitter-bootstrap article  *@
@@ -26,19 +26,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <button id="configure" class="k-rpanel-toggle k-button btn-toggle"><span class="k-icon k-i-hbars"></span></button>
-                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-
-                <div id="responsive-panel" class="navbar-left">
-                    @(Html.Kendo().Menu()
-                                .Name("Menu")
-                                .Items(items =>
-                                {
-                                    items.Add().Text("Home").Action("Index", "Home", new { area = "" });
-                                    items.Add().Text("About").Action("About", "Home", new { area = "" });
-                                    items.Add().Text("Contact").Action("Contact", "Home", new { area = "" });
-                                })
-                    )
+                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
             </div>
         </div>
@@ -51,19 +39,6 @@
                 </footer>
             </div>
         </div> 
-
-        <script>
-            $(document).ready(function () {
-                $("#responsive-panel").kendoResponsivePanel({
-                    breakpoint: 768,
-                    autoClose: false,
-                    orientation: "top"
-                });
-            });
-            function onclick(e) {
-                $("#responsive-panel").getKendoResponsivePanel().toggle();
-            }
-        </script>
 
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)

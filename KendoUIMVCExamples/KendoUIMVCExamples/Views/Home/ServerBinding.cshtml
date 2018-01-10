@@ -1,0 +1,23 @@
+﻿<h2>@ViewBag.Message</h2>
+
+@model KendoUIMVCExamples.Models.ServerBindingModel
+
+@(Html.Kendo().Grid(Model.Data)
+      .Name("Grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id);
+          columns.Bound(c => c.Name).HtmlAttributes(new { style = "background:red;" });
+      })
+      .CellAction(cell =>
+      {
+          if (cell.Column.Title == "Name")
+              cell.HtmlAttributes["style"] = "background:blue;";
+      })
+      .Pageable()
+      .Sortable()
+      .Scrollable()
+      .Filterable()
+      .Groupable()
+)
+

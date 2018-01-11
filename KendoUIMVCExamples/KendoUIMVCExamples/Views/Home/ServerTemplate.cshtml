@@ -1,0 +1,27 @@
+﻿<h2>@ViewBag.Message</h2>
+
+@using KendoUIMVCExamples.Models
+@model ServerTemplateModel
+
+@helper GetTemplate(BaseData item)
+{
+    if (item.Id == 1)
+    {
+        <a class='issue-date-link' data-is-european-country='@item.Id'>@item.Id</a>
+    }
+}
+
+@(Html.Kendo().Grid(Model.Data)
+      .Name("Grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Id);
+          columns.Bound(c => c.Name).Template(@<text>@GetTemplate(item)</text>);
+      })
+      .Pageable()
+      .Sortable()
+      .Scrollable()
+      .Filterable()
+      .Groupable()
+)
+

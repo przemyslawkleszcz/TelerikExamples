@@ -23,6 +23,16 @@ namespace KendoUIMVCExamples.Models
                 {
                     Id = 2,
                     Name = "AjaxBinding"
+                },
+                new IndexData
+                {
+                    Id = 3,
+                    Name = "ServerTemplate"
+                },
+                new IndexData
+                {
+                    Id = 4,
+                    Name = "ClientTemplate"
                 }
             };
 

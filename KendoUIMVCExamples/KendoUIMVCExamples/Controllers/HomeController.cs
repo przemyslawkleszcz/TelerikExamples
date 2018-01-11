@@ -26,6 +26,19 @@ namespace KendoUIMVCExamples.Controllers
             return View();
         }
 
+        public ActionResult ClientTemplate()
+        {
+            ViewBag.Message = "Client template";
+            return View();
+        }
+
+        public ActionResult ServerTemplate()
+        {
+            ViewBag.Message = "Server template";
+            var model = ModelDataProducer.PrepareModel<ServerTemplateModel, ServerTemplateData>();
+            return View(model);
+        }
+
         public ActionResult Index_Read([DataSourceRequest] DataSourceRequest request)
         {
             var model = ModelDataProducer.PrepareIndexModel();
@@ -35,6 +48,12 @@ namespace KendoUIMVCExamples.Controllers
         public ActionResult AjaxBinding_Read([DataSourceRequest] DataSourceRequest request)
         {
             var model = ModelDataProducer.PrepareModel<AjaxBindingModel, AjaxBindingData>();
+            return Json(model.Data.ToDataSourceResult(request));
+        }
+
+        public ActionResult ClientTemplate_Read([DataSourceRequest] DataSourceRequest request)
+        {
+            var model = ModelDataProducer.PrepareModel<ClientTemplateModel, ClientTemplateData>();
             return Json(model.Data.ToDataSourceResult(request));
         }
     }

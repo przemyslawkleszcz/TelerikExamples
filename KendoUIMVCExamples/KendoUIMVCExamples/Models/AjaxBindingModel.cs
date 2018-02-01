@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace KendoUIMVCExamples.Models
 {
@@ -8,5 +9,6 @@ namespace KendoUIMVCExamples.Models
 
     public class AjaxBindingData : BaseData
     {
+        
     }
 }

@@ -1,0 +1,34 @@
+﻿<h2>@ViewBag.Message</h2>
+
+@using KendoUIMVCExamples.Models
+@model TreeListModel
+
+@(Html.Kendo().TreeList<TreeListData>()
+      .Name("treelist")
+      .Columns(columns =>
+      {
+          columns.Add().Field(e => e.Id).Width(280);
+          columns.Add().Field(e => e.Name).Width(160);
+      })
+      .DataSource(dataSource => dataSource
+          .Read(read => read.Action("TreeList_Read", "Home"))
+          .Model(m =>
+          {
+              m.Id(f => f.Id);
+              m.ParentId(f => f.ReportsTo);
+              m.Field(f => f.Name);
+          })
+      ).Events(x => x.DataBound("onDataBound"))
+)
+
+<script>
+
+    function onDataBound(e) {
+        var rows = e.sender.content.find('tr');
+        var nameIndex = e.sender.wrapper.find(".k-grid-header [data-field=" + "Name" + "]").index();
+        rows.each(function(index, row) {
+            $(row).children('td:eq(' + nameIndex + ')').css("color", "red");
+        });
+    };
+
+</script>

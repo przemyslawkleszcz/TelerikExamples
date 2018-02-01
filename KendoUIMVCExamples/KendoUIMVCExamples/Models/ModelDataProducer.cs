@@ -10,6 +10,13 @@ namespace KendoUIMVCExamples.Models
             return model;
         }
 
+        //Assembly asm = Assembly.GetExecutingAssembly();
+
+        //asm.GetTypes()
+        //.Where(type=> typeof(Controller).IsAssignableFrom(type)) //filter controllers
+        //    .SelectMany(type => type.GetMethods())
+        //    .Where(method => method.IsPublic && ! method.IsDefined(typeof(NonActionAttribute)));
+
         private static IEnumerable<IndexData> PrepareIndexData()
         {
             var data = new List<IndexData>
@@ -33,6 +40,16 @@ namespace KendoUIMVCExamples.Models
                 {
                     Id = 4,
                     Name = "ClientTemplate"
+                },
+                new IndexData
+                {
+                    Id = 5,
+                    Name = "DisplayFormatAttribute"
+                },
+                new IndexData
+                {
+                    Id = 6,
+                    Name = "TreeListCellColorChange"
                 }
             };
 

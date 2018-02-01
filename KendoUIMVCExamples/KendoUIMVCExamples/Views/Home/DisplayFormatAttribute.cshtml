@@ -1,0 +1,7 @@
+﻿<h2>@ViewBag.Message</h2>
+
+@model KendoUIMVCExamples.Models.DisplayFormatAttributeModel
+
+@(Html.Kendo().NumericTextBoxFor(m => m.Amount1))
+<br><br>
+@(Html.Kendo().NumericTextBoxFor(m => m.Amount2).Format("N3"))

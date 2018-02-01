@@ -119,11 +119,14 @@
     </Compile>
     <Compile Include="Models\AjaxBindingModel.cs" />
     <Compile Include="Models\ClientTemplateModel.cs" />
+    <Compile Include="Models\DisplayFormatAttributeModel.cs" />
     <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\ModelDataProducer.cs" />
     <Compile Include="Models\ServerBindingModel.cs" />
     <Compile Include="Models\ServerTemplateModel.cs" />
+    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\TreeListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +187,8 @@
     <Content Include="Views\Home\AjaxBinding.cshtml" />
     <Content Include="Views\Home\ClientTemplate.cshtml" />
     <Content Include="Views\Home\ServerTemplate.cshtml" />
+    <Content Include="Views\Home\DisplayFormatAttribute.cshtml" />
+    <Content Include="Views\Home\TreeListCellColorChange.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />

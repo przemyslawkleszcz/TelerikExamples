@@ -53,6 +53,12 @@ namespace KendoUIMVCExamples.Controllers
             return View(model);
         }
 
+        public ActionResult EndlessScrollingForLocalData()
+        {
+            ViewBag.Message = "Endless scrolling for local data";
+            return View();
+        }
+
         public ActionResult Index_Read([DataSourceRequest] DataSourceRequest request)
         {
             var model = ModelDataProducer.PrepareIndexModel();
@@ -68,6 +74,23 @@ namespace KendoUIMVCExamples.Controllers
         public ActionResult ClientTemplate_Read([DataSourceRequest] DataSourceRequest request)
         {
             var model = ModelDataProducer.PrepareModel<ClientTemplateModel, ClientTemplateData>();
+            return Json(model.Data.ToDataSourceResult(request));
+        }
+
+        public ActionResult EndlessScrollingForLocalData_Read([DataSourceRequest] DataSourceRequest request)
+        {
+            var model = new EndlessScrollingForLocalDataModel();
+            var list = new List<BaseData>();
+            for (var i = 0; i < 60; i++)
+            {
+                list.Add(new EndlessScrollingForLocalDataData()
+                {
+                    Id = i,
+                    Name = i.ToString()
+                });
+            }
+
+            model.Data = list;
             return Json(model.Data.ToDataSourceResult(request));
         }
 

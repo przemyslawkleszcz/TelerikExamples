@@ -50,6 +50,11 @@ namespace KendoUIMVCExamples.Models
                 {
                     Id = 6,
                     Name = "TreeListCellColorChange"
+                },
+                new IndexData
+                {
+                    Id = 7,
+                    Name = "EndlessScrollingForLocalData"
                 }
             };
 

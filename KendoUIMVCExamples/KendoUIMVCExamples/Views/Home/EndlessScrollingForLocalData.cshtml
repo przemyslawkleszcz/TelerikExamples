@@ -1,0 +1,18 @@
+﻿<h2>@ViewBag.Message</h2>
+
+@using KendoUIMVCExamples.Models
+@(Html.Kendo().Grid<EndlessScrollingForLocalDataData>()
+      .Name("revenuesGrid")
+      .Columns(columns =>
+      {
+          columns.Bound(o => o.Id);
+          columns.Bound(o => o.Name);
+      })
+      .Filterable(ftb => ftb.Mode(GridFilterMode.Menu))
+      .Scrollable(sc => sc.Endless(true))
+      .DataSource(
+          dataSource => dataSource
+              .Ajax()
+              .PageSize(25)
+              .Read(read => read.Action("EndlessScrollingForLocalData_Read", "Home"))
+      ))

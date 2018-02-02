@@ -120,6 +120,7 @@
     <Compile Include="Models\AjaxBindingModel.cs" />
     <Compile Include="Models\ClientTemplateModel.cs" />
     <Compile Include="Models\DisplayFormatAttributeModel.cs" />
+    <Compile Include="Models\EndlessScrollingForLocalDataModel.cs" />
     <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\ModelDataProducer.cs" />
@@ -189,6 +190,7 @@
     <Content Include="Views\Home\ServerTemplate.cshtml" />
     <Content Include="Views\Home\DisplayFormatAttribute.cshtml" />
     <Content Include="Views\Home\TreeListCellColorChange.cshtml" />
+    <Content Include="Views\Home\EndlessScrollingForLocalData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
